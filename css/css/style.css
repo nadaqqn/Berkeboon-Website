@@ -1,0 +1,889 @@
+/* # fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* # variables */
+:root{
+    --hue: 30;
+    --saturation: 50%;
+    --lightness: 60%;
+    --main-color: hsl(var(--hue), var(--saturation), var(--lightness));
+
+    /* text colors */
+    --text-white: hsl(120, 100%, 100%); /* Tetap putih */
+--text-light-gray: hsl(120, 50%, 90%); /* Hijau sangat terang */
+--text-x-dark-gray: hsl(120, 50%, 30%); /* Hijau gelap */
+--text-dark-gray: hsl(120, 50%, 40%); /* Hijau lebih gelap */
+
+
+    /* bg colors */
+    --body-bg-color: hsl(var(--hue), 60%, 94%);
+    --bg-color: hsl(var(--hue), 60%, 96%);
+    --bg-white: hsl(0, 0%, 100%);
+
+    /* border color */
+    --border-color: hsl(var(--hue), 48%, 80%);
+
+    /* shadow */
+    --shadow: 0 0 10px hsla(var(--hue), 57%, 63%, 0.3);
+    --focus-shadow: 0 0 10px hsla(var(--hue), 57%, 63%, 0.6);
+
+    /* font size */
+    --fs-4xl: 50px;
+    --fs-3xl: 35px;
+    --fs-2xl: 26px;
+    --fs-xl: 20px;
+    --fs-lg: 18px;
+    --fs-md: 16px;
+    --fs-sm: 14px;
+}
+
+/* # base */
+html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::before,
+::after{
+    box-sizing: border-box;
+}
+body{
+   font-family: 'Poppins', sans-serif; 
+   font-weight: 300;
+   font-size: var(--fs-md);
+   line-height: 1.5;
+   color: var(--text-dark-gray);
+   background-color: var(--body-bg-color);
+   -webkit-text-size-adjust: 100%;
+   -webkit-tap-highlight-color: transparent;
+}
+a{
+    color: var(--main-color);
+    text-decoration: none;
+}
+ul{
+    list-style: none;
+}
+h1,h2,h3,h4,h5,h6{
+    color: var(--text-x-dark-gray);
+    line-height: 1.3;
+}
+p{
+    margin-bottom: 15px;
+}
+img{
+    max-width: 100%;
+    vertical-align: middle;
+}
+::selection{
+    color: var(--text-white);
+    background-color: var(--main-color);
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background-color: var(--body-bg-color);
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+/* # page wrapper */
+.page-wrapper{
+    overflow: hidden;
+}
+
+/* # container */
+.container{
+    max-width: 1170px;
+    margin: auto;
+    padding: 0 15px;
+}
+
+.full-width {
+    width: 100vw; /* Gunakan lebar penuh viewport */
+    max-width: 100vw;
+    margin: 0; /* Hilangkan margin */
+    padding: 0; /* Hilangkan padding */
+    overflow-x: hidden; /* Mencegah overflow horizontal */
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+/* # grid */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+}
+
+/*paragraph*/
+p {
+    text-align: justify;
+    line-height: 1.6;  /* Mengatur jarak antar baris */
+  }
+  
+/* # section */
+.section-padding{
+    padding: 60px 0;
+}
+.section-title{
+    text-align: center;
+    margin-bottom: 45px;
+}
+.section-title .title{
+    display: inline-block;
+    font-size: var(--fs-lg);
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--main-color);
+    margin: 0 0 12px;
+    padding: 0 40px;
+    position: relative;
+}
+.section-title .title::before,
+.section-title .title::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 34px;
+    background-color: var(--main-color);
+    top: 50%;
+    transform: translateY(-50%);
+}
+.section-title .title::before{
+    left: 0;
+}
+.section-title .title::after{
+    right: 0;
+}
+.section-title .sub-title{
+    font-size: var(--fs-3xl);
+    text-transform: capitalize;
+}
+/* # buttons */
+button{
+    cursor: pointer;
+}
+.btn{
+    display: inline-block;
+    padding: 10px 28px;
+    background-color: var(--main-color);
+    color: var(--text-white);
+    font-weight: 500;
+    font-size: var(--fs-md);
+    text-transform: capitalize;
+    line-height: 1.5;
+    font-family: inherit;
+    border: 2px solid transparent;
+    border-radius: 30px;
+    vertical-align: middle;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+.btn:hover{
+    background-color: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+/* # forms */
+.input-box{
+    margin-bottom: 20px;
+}
+::placeholder{
+    color: var(--text-dark-gray);
+    opacity: 1; /* ovveride firefox's default opacity */
+}
+.input-control{
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: var(--text-x-dark-gray);
+    padding: 0 20px;
+}
+.input-control:focus{
+    outline: 1px solid var(--border-color);
+}
+textarea.input-control{
+    display: block;
+    height: 150px;
+    padding-top: 15px;
+    resize: none;
+}
+
+/* # preloader */
+
+/* # header */
+.header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+    padding: 10px 0;
+}
+.header::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    z-index: -1;
+    transform: translateY(calc(-100% - 10px));
+    transition: transform 0.5s ease;
+}
+.header.bg-reveal::before{
+    transform: translateY(0);
+}
+.header .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.header .logo a{
+    font-size: 28px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 1;
+    display: block;
+    transform: scaleY(0.9);
+    letter-spacing: 2px;
+}
+.header .logo span{
+    font-size: 12px;
+    display: block;
+    font-weight: 400;
+    color: var(--text-x-dark-gray);
+    letter-spacing: 1px;
+}
+.nav li{
+    display: inline-block;
+    margin-left: 35px;
+}
+.nav a{
+    text-transform: capitalize;
+    font-size: var(--fs-md);
+    color:#493628;
+    font-weight: 400;
+    display: block;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+.nav a:hover{
+    color:#FEECE2;
+}
+.nav-toggler{
+    display: none;
+}
+
+/*toggle*/
+
+.nav {
+    display: block; /* Sembunyikan navbar secara default */
+  }
+  
+  .nav.active {
+    display: none; /* Tampilkan navbar ketika toggle aktif */
+  }
+  
+#toggle {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+/* # home */
+.home{
+    padding: 100px 0 60px;
+}
+.home-text,
+.home-img{
+    grid-column: span 6;
+    align-self: center;
+}
+.home-text h1{
+    font-size: var(--fs-4xl);
+    margin: 0 0 20px;
+    text-transform: capitalize;
+}
+.home-text p{
+    margin: 0 0 30px;
+}
+.home-img{
+    position: relative;
+}
+.home-img .circle-wrap{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+}
+.home-img .circle{
+    height: 350px;
+    width: 350px;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+.home-img img{
+    max-width: 270px;
+    display: block;
+    margin: auto;
+}
+
+/* # about */
+.about .section-title{
+    text-align: left;
+    margin: 0 0 15px;
+}
+.about-img,
+.about-text{
+    grid-column: span 6;
+    align-self: center;
+}
+.about-img .img-box{
+    max-width: 400px;
+    margin: auto;
+    padding: 15px;
+    border-radius: 50%;
+    background-color:#F3F3E0;
+    box-shadow: var(--shadow);
+    position: relative;
+}
+.about-img .img-box img{
+    border-radius: 50%;
+}
+.about-img .box{
+    height: 125px;
+    width: 125px;
+    background-color: var(--main-color);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0 40px;
+    padding: 15px;
+}
+.about-img .box-1{
+    top: 50%;
+    left: 0;
+    transform: translate(-50% -50%);
+}
+.about-img .box span{
+    color: var(--text-white);
+    font-weight: bold;
+    font-size: var(--fs-3xl);
+    margin: 0 0 5px;
+    line-height: 1;
+}
+.about-img .box p{
+    font-size: var(--fs-sm);
+    text-transform: uppercase;
+    color: var(--text-light-gray);
+    margin: 0;
+}
+/* # services */
+.services-item{
+    grid-column: span 3;
+    text-align: center;
+}
+.services-item .img-box{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    box-shadow: var(--shadow);
+    background-color: var(--bg-color);
+    padding: 8px;
+    overflow: hidden;
+}
+.services-item .img-box img{
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+}
+.services-item:hover .img-box img{
+    transform: scale(1.5);
+}
+.services-item h3{
+    text-transform: capitalize;
+    font-size: var(--fs-xl);
+    font-weight: 500;
+}
+
+
+/* Pricing*/
+.grid-pricing {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Membuat 4 kolom dengan lebar yang sama */
+    gap: 30px; /* Menambahkan jarak antar kolom */
+}
+
+/* Styling untuk setiap pricing-item */
+.pricing-item {
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menyelaraskan konten ke tengah */
+}
+
+/* Header untuk Pricing */
+.pricing-header h3 {
+    text-transform: capitalize;
+    margin: 0 0 20px;
+    font-size: var(--fs-2xl);
+    font-weight: 600;
+}
+
+/* Styling untuk bagian harga */
+.pricing-header .price {
+    height: 140px;
+    width: 140px;
+    box-shadow: inset var(--shadow);
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-sm);
+    text-transform: capitalize;
+}
+
+/* Styling untuk angka harga */
+.pricing-header .price span {
+    font-size: var(--fs-3xl);
+    color: var(--main-color);
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+/* Bagian isi pricing-item */
+.pricing-body {
+    padding: 30px 0;
+    text-align: left;
+}
+
+/* Styling untuk setiap item list */
+.pricing-body li {
+    text-transform: capitalize;
+    position: relative;
+    padding-left: 27px;
+}
+
+.pricing-body li + li {
+    margin-top: 10px;
+}
+
+.pricing-body li i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: var(--fs-sm);
+}
+
+
+
+
+
+/*receipt*/
+/* # card-pricing */
+/* Card Pricing Styles */
+/* Card Pricing Styles */
+.card-pricing-item {
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-right: 20px; /* Space between cards */
+    flex: 0 0 200px; /* Set fixed width for uniformity */
+    min-height: 300px; /* Ensure all cards have the same height */
+}
+
+.card-pricing-header h3 {
+    text-transform: capitalize;
+    margin: 0 0 20px;
+    font-size: var(--fs-2xl);
+    font-weight: 600;
+}
+
+.card-pricing-header .price {
+    height: 140px;
+    width: 140px;
+    box-shadow: inset var(--shadow);
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-sm);
+    text-transform: capitalize;
+}
+
+.card-pricing-header .price span {
+    font-size: var(--fs-3xl);
+    color: var(--main-color);
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.card-pricing-body {
+    padding: 30px 0;
+    text-align: left;
+}
+
+.card-pricing-body li {
+    text-transform: capitalize;
+    position: relative;
+    padding-left: 27px;
+}
+
+.card-pricing-body li + li {
+    margin-top: 10px;
+}
+
+.card-pricing-body li i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+/* Pricing Layout */
+.pricing-layout {
+    display: flex; /* Use flexbox for horizontal layout */
+    gap: 20px;
+}
+
+.card-pricing-list {
+    display: flex; /* Flex for horizontal scrolling */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding: 20px 0; /* Padding for card area */
+    width: 60%; /* Set width to 60% of the container */
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+.card-pricing-list::-webkit-scrollbar {
+    height: 8px; /* Height of the scrollbar */
+}
+
+.card-pricing-list::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded corners of the scrollbar thumb */
+}
+
+.card-pricing-list::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color when hovered */
+}
+
+/* Cart Styles */
+.cart {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 40%; /* Set width to 40% of the container */
+}
+
+.cart h3 {
+    margin-bottom: 15px;
+}
+
+.cart ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cart ul li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.total {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838; /* Darker shade on hover */
+}
+
+
+
+/* # team */
+#team .img-box img {
+    width: 100%;       /* Menyesuaikan lebar dengan kontainer */
+    height: 300px;     /* Atur tinggi yang diinginkan, bisa diubah sesuai preferensi */
+    object-fit: cover; /* Memotong gambar agar sesuai dengan ukuran kontainer */
+  }
+  
+.team-item{
+    grid-column: span 4;
+}
+.team-item .img-box{
+    max-width: 350px;
+    box-shadow: var(--shadow);
+    background-color: var(--bg-color);
+    margin: auto;
+    border-radius: 50%;
+    padding: 15px;
+}
+.team-item img{
+    border-radius: 50%;
+    transition: filter 0.5s ease;
+}
+.team-item:hover img{
+    filter:grayscale(-50%)
+}
+.team-item .detail{
+    background-color: var(--main-color);
+    width: 85%;
+    max-width: 260px;
+    padding: 15px;
+    margin: -42px auto 0;
+    text-align: center;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 1;
+    border-radius: 0 40px;
+    transition: border-radius 0.5s ease;
+}
+.team-item:hover .detail{
+    border-radius: 40px 0;
+}
+.team-item h3{
+    margin: 0 0 5px;
+    color: var(--text-white);
+    font-size: var(--fs-xl);
+    font-weight: 500;
+}
+.team-item p{
+    margin: 0;
+    color: var(--text-light-gray);
+}
+
+/* # contact */
+.contact-grid{
+    max-width: 1000px;
+    margin: auto;
+}
+.contact-info{
+    grid-column: span 5;
+}
+.contact-form{
+    grid-column: span 7;
+}
+.contact-info-item{
+    position: relative;
+    padding: 20px 0 20px 70px;
+}
+.contact-info-item + .contact-info-item{
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+.contact-info-item i{
+    height: 50px;
+    width: 50px;
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    color: var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 20px;
+}
+.contact-info-item h3{
+    margin: 0 0 10px;
+    font-size: var(--fs-xl);
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.contact-info-item p:last-child{
+    margin: 0;
+}
+
+
+/* #halaman guidance cara pemesanan*/
+/* # guidance */
+/* Mengubah grid guidance agar memiliki 4 kolom */
+.grid-guidance {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Membuat 4 kolom dengan lebar yang sama */
+    gap: 30px; /* Menambahkan jarak antar item */
+}
+.guidance-item {
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Styling untuk box-guidance yang berisi angka */
+.box-guidance {
+    position: absolute;
+    top: -15px; /* Menyesuaikan posisi angka di atas judul */
+    left: 0;
+    right: 0;
+    text-align: center;
+    background-color: blue; /* Memberikan latar belakang warna utama */
+    width: 40px; /* Menentukan lebar box angka */
+    height: 40px; /* Menentukan tinggi box angka */
+    border-radius: 50%; /* Membuat angka berbentuk lingkaran */
+    color: white; /* Warna teks angka putih */
+    font-size: var(--fs-lg); /* Ukuran font angka */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold; /* Menebalkan angka */
+}
+
+/* Styling untuk angka dalam box-guidance */
+.box-guidance p {
+    margin: 0;
+    font-size: var(--fs-lg);
+    color: black;
+}
+
+.guidance-header h3 {
+    text-transform: capitalize;
+    margin: 0 0 20px;
+    font-size: var(--fs-2xl);
+    font-weight: 600;
+}
+
+.guidance-header .icon {
+    height: 100px;
+    width: 100px;
+    box-shadow: inset var(--shadow);
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-lg);
+    color: var(--main-color);
+    margin-bottom: 20px;
+}
+
+.guidance-body {
+    padding: 20px 0;
+    text-align: left;
+}
+
+.guidance-body li {
+    text-transform: capitalize;
+    position: relative;
+    padding-left: 27px;
+    font-size: var(--fs-sm);
+}
+
+.guidance-body li + li {
+    margin-top: 10px;
+}
+
+.guidance-body li i {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    font-size: var(--fs-sm);
+    color: var(--accent-color);
+}
+
+.guidance-body p {
+    margin-top: 15px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+/* Styling tombol Buy */
+.btn-buy {
+    position: absolute; /* Membuat tombol keluar dari flow normal */
+    bottom: -20px; /* Mengatur posisi tombol di bawah parent */
+    left: 50%; /* Menempatkan tombol di tengah secara horizontal */
+    transform: translateX(-50%); /* Menyesuaikan posisi agar benar-benar di tengah */
+    background-color: #28a745; /* Warna latar tombol */
+    color: white; /* Warna teks tombol */
+    padding: 10px 20px; /* Menambah padding tombol */
+    border: none; /* Menghapus border default */
+    border-radius: 5px; /* Membuat tombol melengkung */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+    cursor: pointer; /* Menambahkan pointer */
+}
+
+/* Styling untuk hover tombol Buy */
+.btn-buy:hover {
+    background-color: #218838; /* Warna lebih gelap saat hover */
+}
+
+
+
+/* # footer */
+.footer{
+    padding: 50px 0;
+    background-color: var(--main-color);
+    text-align: center;
+}
+.footer h3{
+    color: var(--text-white);
+    font-size: var(--fs-2xl);
+    margin: 0 0 15px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.footer .social-links a{
+    height: 40px;
+    width: 40px;
+    display: inline-flex;
+    background-color: var(--bg-white);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    border: 1px solid transparent;
+    transition: all 0.5s ease;
+}
+.footer .social-links a:hover{
+    background-color: transparent;
+    color: var(--text-white);
+    border-color: initial;
+}
+
+/* # responsive */
+@media (max-width: 768px) {
+    .home-text {
+        font-size: 14px;
+    }
+}
